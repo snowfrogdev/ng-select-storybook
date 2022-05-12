@@ -80,6 +80,39 @@
         "jestConfig": "apps/client/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "port": 4400,
+        "config": {
+          "configFolder": "apps/client/.storybook"
+        },
+        "projectBuildConfig": "client"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "outputPath": "dist/storybook/client",
+        "config": {
+          "configFolder": "apps/client/.storybook"
+        },
+        "projectBuildConfig": "client"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     }
   },
   "tags": []
